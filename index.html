@@ -34,17 +34,17 @@
         <span></span>
         <span></span>
         <span></span>
-        AMAN K.
+        AMAN K. 
       </a>
     </div>
     <nav class="navbar">
-      <ul class="nav-links">
-        <li><a href="#home" class="nav-link active">Home</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#services" class="nav-link">Services</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-      </ul>
-    </nav>
+  <ul class="nav-links">
+    <li><a href="#home" class="nav-link active">Home</a></li>
+    <li><a href="#about" class="nav-link">About</a></li>
+    <li><a href="#services" class="nav-link">Services</a></li>
+    <li><a href="#contact" class="nav-link">Contact</a></li>
+  </ul>
+</nav>
 
   </header>
 
@@ -180,16 +180,16 @@
     </div>
 
   </section>
-  <div class="chatbot-toggle" onclick="toggleChatbot()">💬</div>
+<div class="chatbot-toggle" onclick="toggleChatbot()">💬</div>
 
-  <div class="chatbot-window" id="chatbotWindow">
-    <div class="chatbot-header">AI Assistant</div>
-    <div class="chatbot-messages" id="chatMessages"></div>
-    <div class="chatbot-input">
-      <input type="text" id="userInput" placeholder="Ask me something..." onkeydown="handleKey(event)" />
-      <button onclick="sendMessage()">➤</button>
-    </div>
+<div class="chatbot-window" id="chatbotWindow">
+  <div class="chatbot-header">AI Assistant</div>
+  <div class="chatbot-messages" id="chatMessages"></div>
+  <div class="chatbot-input">
+    <input type="text" id="userInput" placeholder="Ask me something..." onkeydown="handleKey(event)" />
+    <button onclick="sendMessage()">➤</button>
   </div>
+</div>
 
   <div class="footer">
     <h5>Copyright &copy; Aman Kanaujiya | 2025</h5>
@@ -306,79 +306,79 @@
       "retina_detect": true
     });
   </script>
-  <script>
-    function toggleChatbot() {
-      const chatbot = document.getElementById("chatbotWindow");
-      chatbot.style.display = chatbot.style.display === "flex" ? "none" : "flex";
-    }
+<script>
+function toggleChatbot() {
+  const chatbot = document.getElementById("chatbotWindow");
+  chatbot.style.display = chatbot.style.display === "flex" ? "none" : "flex";
+}
 
-    function handleKey(event) {
-      if (event.key === "Enter") sendMessage();
-    }
+function handleKey(event) {
+  if (event.key === "Enter") sendMessage();
+}
 
-    function sendMessage() {
-      const input = document.getElementById("userInput");
-      const message = input.value.trim();
-      if (!message) return;
+function sendMessage() {
+  const input = document.getElementById("userInput");
+  const message = input.value.trim();
+  if (!message) return;
 
-      addMessage("You", message);
-      getBotResponse(message);
-      input.value = "";
-    }
+  addMessage("You", message);
+  getBotResponse(message);
+  input.value = "";
+}
 
-    function addMessage(sender, text) {
-      const chat = document.getElementById("chatMessages");
-      const msgDiv = document.createElement("div");
-      msgDiv.innerHTML = `<strong>${sender}:</strong> ${text}`;
-      chat.appendChild(msgDiv);
-      chat.scrollTop = chat.scrollHeight;
-    }
+function addMessage(sender, text) {
+  const chat = document.getElementById("chatMessages");
+  const msgDiv = document.createElement("div");
+  msgDiv.innerHTML = `<strong>${sender}:</strong> ${text}`;
+  chat.appendChild(msgDiv);
+  chat.scrollTop = chat.scrollHeight;
+}
 
-    function getBotResponse(message) {
-      const msg = message.toLowerCase();
+function getBotResponse(message) {
+  const msg = message.toLowerCase();
 
-      let response = "Sorry, I didn’t understand that.";
+  let response = "Sorry, I didn’t understand that.";
 
-      if (msg.includes("hi") || msg.includes("hello")) {
-        response = "Hello! How can I help you today?";
-      } else if (msg.includes("your name")) {
-        response = "I'm your friendly assistant bot!";
-      } else if (msg.includes("project")) {
-        response = "You can check my projects in the 'Projects' section.";
-      } else if (msg.includes("contact")) {
-        response = "Feel free to use the contact form at the bottom!";
-      } else if (msg.includes("skills")) {
-        response = "I'm skilled in HTML, CSS, JavaScript, Python, and more!";
+  if (msg.includes("hi") || msg.includes("hello")) {
+    response = "Hello! How can I help you today?";
+  } else if (msg.includes("your name")) {
+    response = "I'm your friendly assistant bot!";
+  } else if (msg.includes("project")) {
+    response = "You can check my projects in the 'Projects' section.";
+  } else if (msg.includes("contact")) {
+    response = "Feel free to use the contact form at the bottom!";
+  } else if (msg.includes("skills")) {
+    response = "I'm skilled in HTML, CSS, JavaScript, Python, and more!";
+  }
+
+  setTimeout(() => addMessage("Bot", response), 500);
+}
+
+
+</script>
+<script>
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => {
+          link.classList.remove("active");
+          if (link.getAttribute("href").substring(1) === entry.target.id) {
+            link.classList.add("active");
+          }
+        });
       }
-
-      setTimeout(() => addMessage("Bot", response), 500);
-    }
-
-
-  </script>
-  <script>
-    const sections = document.querySelectorAll("section");
-    const navLinks = document.querySelectorAll(".nav-link");
-
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          navLinks.forEach(link => {
-            link.classList.remove("active");
-            if (link.getAttribute("href").substring(1) === entry.target.id) {
-              link.classList.add("active");
-            }
-          });
-        }
-      });
-    }, {
-      threshold: 0.6
     });
+  }, {
+    threshold: 0.6
+  });
 
-    sections.forEach(section => {
-      observer.observe(section);
-    });
-  </script>
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+</script>
 
 </body>
 
