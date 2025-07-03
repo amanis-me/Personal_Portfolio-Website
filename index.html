@@ -34,15 +34,18 @@
         <span></span>
         <span></span>
         <span></span>
-        AMAN K.
+        AMAN K. 
       </a>
     </div>
-    <nav class="nav">
-      <a href="#content">Home</a>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <nav class="navbar">
+  <ul class="nav-links">
+    <li><a href="#home" class="nav-link active">Home</a></li>
+    <li><a href="#about" class="nav-link">About</a></li>
+    <li><a href="#services" class="nav-link">Services</a></li>
+    <li><a href="#contact" class="nav-link">Contact</a></li>
+  </ul>
+</nav>
+
   </header>
 
   <section id="home" class="home">
@@ -65,7 +68,7 @@
         </div>
         <div class="socials">
           <a href="#"><i class='bx bxl-instagram'></i></a>
-          <a href="#"><i class='bx bxl-github'></i></a>
+          <a href="https://github.com/amanis-me"><i class='bx bxl-github'></i></a>
           <a href="#"><i class='bx bxl-whatsapp'></i></a>
         </div>
       </div>
@@ -353,6 +356,30 @@ function getBotResponse(message) {
 
 
 </script>
+<script>
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => {
+          link.classList.remove("active");
+          if (link.getAttribute("href").substring(1) === entry.target.id) {
+            link.classList.add("active");
+          }
+        });
+      }
+    });
+  }, {
+    threshold: 0.6
+  });
+
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+</script>
+
 </body>
 
 </html>
