@@ -1574,3 +1574,142 @@
   color: #00ffff;
   border-bottom: 2px solid #00ffff;
 }
+
+/* =================================== */
+/* ==     Mobile Responsiveness     == */
+/* =================================== */
+
+.menu-toggle {
+  display: none; /* Hidden on desktop */
+  font-size: 28px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* Breakpoint for tablets and phones */
+@media (max-width: 768px) {
+
+  /* --- Header & Navigation --- */
+  header {
+    padding: 5px 20px; /* Tighter padding for mobile */
+  }
+
+  .menu-toggle {
+    display: block; /* Show hamburger on mobile */
+  }
+
+  .nav-links {
+    position: fixed; /* Use fixed to cover the whole screen */
+    top: 60px; /* Position below header */
+    right: -100%; /* Start off-screen */
+    width: 100%;
+    height: 100vh;
+    background: rgba(10, 15, 41, 0.95); /* Match your scrolled header */
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    transition: right 0.5s ease-in-out;
+    z-index: 1000;
+  }
+
+  /* This class is toggled by JavaScript */
+  .nav-links.active {
+    right: 0; /* Slide in from the right */
+  }
+  
+  .nav-link {
+    font-size: 1.3rem; /* Make links bigger for tapping */
+  }
+
+  /* --- Home Section --- */
+  .home {
+    padding: 100px 20px 60px; /* Adjust padding */
+  }
+
+  .home-container.modern-ui {
+    flex-direction: column; /* Stack left/right content */
+    gap: 40px;
+  }
+
+  .home-left {
+    text-align: center; /* Center text on mobile */
+  }
+  
+  .animated-text {
+    font-size: 2.2rem; /* Smaller heading */
+    justify-content: center;
+  }
+  
+  .typing-effect {
+      font-size: 1.2rem;
+      /* Remove fixed width and typing animation for simplicity */
+      width: auto;
+      border-right: none;
+      animation: none;
+      white-space: normal;
+  }
+
+  .home-actions,
+  .socials {
+    justify-content: center; /* Center buttons and icons */
+  }
+  
+  .home-right {
+    /* The info cards will stack naturally, which is good. */
+    width: 100%;
+  }
+
+  /* --- General Section & Font Resizing --- */
+  .enhanced-about,
+  #services,
+  #contact {
+    padding: 80px 20px; /* Reduce side padding */
+  }
+
+  .about-content h2,
+  .services-container h2,
+  .contact-header h2 {
+    font-size: 2.2rem; /* Smaller section headings */
+  }
+
+  .about-card,
+  .service-card {
+    width: 90%; /* Make cards wider on mobile */
+    max-width: 320px;
+  }
+
+  /* --- Contact Section --- */
+  .contact-content {
+    flex-direction: column; /* This is already in your CSS */
+    align-items: center;
+  }
+
+  .contact-form-glass,
+  .contact-info-card {
+    width: 100%;
+    max-width: 500px;
+    flex-basis: auto; /* Reset flex-basis */
+  }
+  
+  /* --- Chatbot --- */
+  .chatbot-toggle {
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .chatbot-window {
+      bottom: 80px;
+      right: 20px;
+      width: calc(100% - 40px); /* Make chatbot wider */
+      max-width: 300px;
+  }
+  
+  /* --- Hide Custom Cursor on Mobile --- */
+  #cursor {
+    display: none;
+  }
+}
